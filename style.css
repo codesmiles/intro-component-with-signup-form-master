@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
+body{
+    background-image:url(bg-intro-mobile.png) ;
+    background-color:  hsl(0, 100%, 74%) ;
+    Font-size: 16px;
+   font-family:Poppins;
+    color: white;
+    max-width:100%;
+
+}
+
+.details{
+    text-align: center;
+    margin:5em 0 1em;
+    
+}
+
+.details>h1{
+    line-height:1.2em ;
+    margin:0;
+    font-size:2em ;
+    font-weight: 600;
+    
+}
+.details>p{
+    padding:1em ;
+}
+
+.trial{
+    margin:3% 0 6%;
+    text-align: center;
+    background:  hsl(248, 32%, 49%);
+    padding: 0.01em 3.6em;
+    border-radius: 0.5em;
+    box-shadow:0px 8px 2px hsla(249, 10%, 26%, 0.25);
+}
+
+.formInput{
+    background-color: white;
+    color: rgba(153, 152, 152, 0.781);
+    list-style-type: none;
+    border-radius: 0.5em;
+    padding: 1.5em 1.5em 1em;
+}
+
+
+input{
+    width:100%;
+    border-style:solid;
+    border-width:0.1px ;
+    border-color: rgb(216, 216, 216);
+    padding: 1em 0;
+    border-radius: 0.5em;
+}
+input[placeholder]{
+    font-size: 1.1em;
+    font-weight: bold;
+
+}
+button{
+    width:100%;
+    
+    padding:1.3em;
+    /* 1.5em */
+
+    border-style: none;
+    border-radius: 0.5em;
+    box-shadow:0px 5px 2px hsla(154, 55%, 42%, 0.876);
+    background-color: hsl(154, 59%, 51%);
+ 
+}
+button>a{
+    color: white;
+    text-align: center;
+    font-size: 1.3em;
+    text-transform: uppercase;
+    text-decoration:none;
+}
+
+form>p{
+    font-size: 0.7em;
+    text-align: center;
+    padding:3% 5% 0%;
+}
+form>p>a{
+    text-decoration: none;
+    color:red;
+}
+#error,#error1,#error2,#error3{
+text-align: right;
+color: rgb(233, 124, 124);
+}
+.fn{
+    position: relative;
+}
+.errorimg,.errorimg1,.errorimg2,.errorimg3{
+    position: absolute;
+    display: none;
+    right:5%;
+    top:15px;
+}
+
+
+
+@media (min-width:768px) {
+    body{
+        background-image:url(bg-intro-desktop.png) ;
+    }
+     .main{
+        margin-top: 5em;
+        display: flex;
+        justify-content: center;
+        
+        }
+ 
+        .details{
+            width:50%; 
+            text-align:left;
+            margin-top: 12em;
+        }
+        .details>h1{
+            line-height: 1em;
+            font-size: 3em;
+            padding-right: 1em;
+        }
+
+       .details>p{
+           width: 80%;
+           padding-left: 0;
+       }
+    
+      
+}
+
+@media (min-width:1440px) {
+
+
+    main{
+        margin-top: 1em;
+    }
+   
+
+    .details>h1{
+       
+        font-size:4em;
+
+        /* padding: 1em; */
+
+    }
+    .details>p{
+        padding:1em 9em 0em 0em;
+        
+    }
+
+}
+
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
