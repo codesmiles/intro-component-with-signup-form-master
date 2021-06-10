@@ -1,3 +1,5 @@
+//Stating the available HTML syntax and values
+
 const firstName = document.getElementById("first-name");
 const lastName = document.getElementById("last-name");
 const email = document.getElementById("email");
@@ -13,63 +15,73 @@ const passwordErrorImage = document.querySelector(".errorimg3")
 const submit = document.querySelector("#btn");
 const formInput = document.querySelector(".formInput")
 
+
+//USING EVENT LISTENER TO CHECK ON CLICK
+
 submit.addEventListener("click", ()=>{
-  
+ 
+//PUTTING DOWN FUNCTIONS TO CALL OR INVOKE LATER ON
+
   function firstNameErrorNotify(){
-    firstNameError.innerHTML= "First name cannot be empty";
+   return firstNameError.innerHTML= "First name cannot be empty",
     firstNameErrorImage.style.display = "block";
-    return false
+    
   }
   function lastNameErrorNotify(){
-    lastNameError.innerHTML = "Last name cannot be empty"
-    lastNameErrorImage.style.display = "block"
-     return false
+    return lastNameError.innerHTML = "Last name cannot be empty",
+    lastNameErrorImage.style.display = "block";
   }
   function emailErrorNotify(){
-    emailError.innerHTML = "Looks like this is not an email";
+    return emailError.innerHTML = "Looks like this is not an email",
     emailErrorImage.style.display = "block";
-    return false
+    
   }
   function passwordErrorNotify(){
-    passwordError.innerHTML = "Password cannot be empty";
+    return passwordError.innerHTML = "Password cannot be empty",
     passwordErrorImage.style.display = "block";
-    return false
   }
-  // function accessGranted(){
+  /*NOT IMPORTANT ANYMORE
+
+  function accessGranted(){
   //   return formInput.reset(),
-  //   firstNameError = "",
-  //   lastNameError = "",
-  //   emailError = "",
-  //   passwordError = "",
-  //   firstNameErrorImage.style.display = "none",
-  //   lastNameErrorImage.style.display = "none",
-  //   emailErrorImage.style.display = "none",
-  //   passwordErrorImage.style.display ="none";
+    return firstNameError.innerHTML = "",
+    lastNameError.innerHTML = "",
+    emailError.innerHTML = "",
+    passwordError.innerHTML = "",
+    firstNameErrorImage.style.display = "none",
+    lastNameErrorImage.style.display = "none",
+    emailErrorImage.style.display = "none",
+    passwordErrorImage.style.display ="none";
     
-  // }
+  }
+  function access(){
+    window.onload(formInput)
+  }
+  */
 
   function reverseFirstNameErrorNotify(){
-    firstNameError.innerHTML = "";
+    return firstNameError.innerHTML = "",
     firstNameErrorImage.style.display = "none";
-    return true;
+   
   }
 
   function reverseLastNameErrorNotify(){
-    lastNameError.innerHTML = ""
-    lastNameErrorImage.style.display = "none"
-     return true
+    return lastNameError.innerHTML = "",
+    lastNameErrorImage.style.display = "none";
+     
   }
   function reverseEmailErrorNotify(){
-    emailError.innerHTML = "";
+    return emailError.innerHTML = "",
     emailErrorImage.style.display = "";
-    return true
+   
   }
   function reversePasswordErrorNotify(){
-    passwordError.innerHTML = "";
+    return passwordError.innerHTML = "",
     passwordErrorImage.style.display = "";
-    return true
+  
   }
 
+  //WITH THE HELP OF THE PREVIOUSLY MADE FUNCTIONS AN IF STATEMENT(PROBABLY PRACTICE TO FIND A SHORTER WAY) TO CONFIRM IF THE INPUT EVENT IS TRUE OR NOT
 
   if(firstName.value.length === 0 && lastName.value.length === 0 && email.value.length === 0 && password.value.length === 0)
   {
@@ -77,8 +89,6 @@ submit.addEventListener("click", ()=>{
     lastNameErrorNotify();
     emailErrorNotify();
     passwordErrorNotify();
-
-  
   }
 
  else if (firstName.value.length === 0 && lastName.value.length === 0 && email.value.length === 0)
@@ -86,85 +96,68 @@ submit.addEventListener("click", ()=>{
   firstNameErrorNotify();
   lastNameErrorNotify();
   emailErrorNotify();
-
-
  }
+
  else if(firstName.value.length === 0 && lastName.value.length === 0 && password.value.length === 0)
  {
   firstNameErrorNotify();
   lastNameErrorNotify();
   passwordErrorNotify();
- 
 }
+
  else if(firstName.value.length === 0 && email.value.length === 0 && password.value.length === 0)
  {
   firstNameErrorNotify();
   emailErrorNotify();
   passwordErrorNotify();
-  
-
-
  }
+ 
  else if(lastName.value.length === 0 && email.value.length === 0 && password.value.length === 0)
  {
   lastNameErrorNotify();
   emailErrorNotify();
   passwordErrorNotify();
-
-
  }
 
  else if(firstName.value.length === 0 && lastName.value.length === 0)
  {
   firstNameErrorNotify();
   lastNameErrorNotify();
-
-
  }
 
  else if(firstName.value.length === 0 && email.value.length === 0)
  {
   firstNameErrorNotify();
   emailErrorNotify();
-
-
  }
 
  else if(firstName.value.length === 0 && password.value.length === 0)
  {
   passwordErrorNotify();
   firstNameErrorNotify();
-
-
  }
 
  else if(lastName.value.length === 0 && email.value.length === 0)
  {
   lastNameErrorNotify();
   emailErrorNotify();
-
-
  }
 
  else if(lastName.value.length === 0 && password.value.length === 0)
  {
   lastNameErrorNotify();
   passwordErrorNotify();
-
-
  }
+
  else if(email.value.length === 0 && password.value.length === 0)
  {
   emailErrorNotify();
   passwordErrorNotify();
-
-
 }
-else if(firstName.value.lngth === 0)
+
+else if(firstName.value.length === 0)
 {
   firstNameErrorNotify();
-
-
 }
 
 else if(lastName.value.length === 0)
@@ -183,19 +176,20 @@ else if(password.value.length === 0)
 }
 
   else{
-    // accessGranted();
+   
       return true
   }
   
 
+// ANOTHER EVENT LISTENER TO CHECK ON THE INPUT OF THE FORM
 
-  if(firstName.value.length !== 0 && lastName.value.length !== 0 && email.value.length !== 0 && password.value.length !== 0)
+  formInput.addEventListener("input", ()=>{
+    if(firstName.value.length !== 0 && lastName.value.length !== 0 && email.value.length !== 0 && password.value.length !== 0)
   {
     reverseFirstNameErrorNotify();
     reverseLastNameErrorNotify();
     reverseEmailErrorNotify();
     reversePasswordErrorNotify();
-
   }
 
  else if (firstName.value.length !== 0 && lastName.value.length !== 0 && email.value.length !== 0)
@@ -203,8 +197,6 @@ else if(password.value.length === 0)
   reverseFirstNameErrorNotify();
   reverseLastNameErrorNotify();
   reverseEmailErrorNotify();
-
-
  }
  
  else if(firstName.value.length !== 0 && lastName.value.length !== 0 && password.value.length !== 0)
@@ -212,8 +204,6 @@ else if(password.value.length === 0)
   reverseFirstNameErrorNotify();
   reverseLastNameErrorNotify();
   reversePasswordErrorNotify();
- 
-  // formInput.reset();
 }
 
 else if(firstName.value.length !== 0 && email.value.length !== 0 && password.value.length !== 0)
@@ -232,7 +222,7 @@ else if(firstName.value.length !== 0 && email.value.length !== 0 && password.val
 
  else if(firstName.value.length !== 0 && lastName.value.length !== 0)
  {
-  recerseFirstNameErrorNotify();
+  reverseFirstNameErrorNotify();
   reverseLastNameErrorNotify();
  }
 
@@ -287,15 +277,15 @@ else if(password.value.length !== 0)
 }
 
   else{
-    // accessGranted();
+ 
       return false
   }
 
+  })
+
+
+
+
 })
 
-// submit.addEventListener("onkeypress", ()=>{
-  
-  
-  
 
-// })

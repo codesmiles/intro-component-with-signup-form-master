@@ -42,6 +42,8 @@ body{
     list-style-type: none;
     border-radius: 0.5em;
     padding: 1.5em 1.5em 1em;
+    border:none;
+    outline:none;
 }
 
 
