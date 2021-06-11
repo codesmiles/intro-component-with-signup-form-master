@@ -75,6 +75,7 @@ The use of arrow function in Javascript section is a little bit new for me so i 
 
 - Frontend Mentor - [@C-smile-S](https://www.frontendmentor.io/profile/C-smile-S)
 - Twitter - [@ccodesmiles](https://www.twitter.com/ccodesmiles)
+- linkedin - [@Profile](https://www.linkedin.com/in/michael-nwogu-974547150/)
 
 ## Acknowledgments
 
