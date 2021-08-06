@@ -11,6 +11,7 @@
  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  
 <div class="main">
   <div class="details">
     <h1>
@@ -30,34 +31,85 @@
     </div>
 
     <div >
+     <p><?php
+    //CONNECTS TO THE DATABASE
+      require('connect.php');
 
-      <form method="GET" action="" class="formInput">
-          <div class="fn">  
-            <input type="text" placeholder="First Name" id="first-name">
+//ISSET() IS USED TO AVOID ERROR MESSAGES IF THE INPUT TYPES ARE EMPTY
+      if(isset($_POST['forminput'])){
+        
+        //ASSIGNING INPUT VALUES INTO PHP VARIABLES
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $email = $_POST['email'];
+        $password =$_POST['password'];
+        
+        // CHECK IF THE THE EMAIL EXIST IN D DATABASE
+        $sql = "SELECT email from user_data WHERE email ='$email'";
+        $result = $conn->query($sql);
+        $num = $result->num_rows;
+
+        // echo "seen" ;
+
+        if($num == 0){
+          // echo 'seen';
+          
+          // IF THE EMAIL HASN'T BEEN USED
+
+          //Fill in the database the necessary input data
+          $ql = "INSERT INTO user_data (firstname, lastname, email, pwd) VALUES('$firstname', '$lastname', '$email', '$password')";         
+
+          //NOTIFY UIF THE DATA HAS BEEN CREATED OR NOT
+          if($conn ->query($ql)){
+            echo "Record created successfully";
+
+
+          }
+          else{
+            echo "Error: " . $ql . mysqli_error($conn);
+          };
+
+        }
+        else{
+          //SIGNIFY THAT THE EMAIL ALREADY EXIST IN THE DATABASE
+
+          echo 'Email already exist';
+        };
+
+      }
+  
+
+  ?></p>
+      <form method="POST" action="" class="formInput">
+       
+
+      
+      <div class="fn">  
+            <input type="text" name="firstname" placeholder="First Name" id="first-name">
             <img src="icon-error.svg" alt="error" class="errorimg">
             <p id="error"></p>
           </div>
 
           <div class="fn">  
-            <input type="text" placeholder="Last Name" id="last-name">
+            <input type="text" name="lastname" placeholder="Last Name" id="last-name">
             <img src="icon-error.svg" alt="error" class="errorimg1">
             <p id="error1"></p>
           </div>
 
           <div class="fn">  
-            <input type="email" placeholder="Email Address" id="email">
+            <input type="email" name="email" placeholder="Email Address" id="email">
             <img src="icon-error.svg" alt="error" class="errorimg2">
             <p id="error2"></p>
           </div>
           
           <div class="fn">  
-            <input type="password" placeholder="Password" id="password">
+            <input type="password" name="password" placeholder="Password" id="password">
             <img src="icon-error.svg" alt="error" class="errorimg3">
             <p id="error3"></p>
           </div>
         
         <div>
-          <button type="submit" id="btn" ><a href="#"> Claim your free trial</a></button>
+          <button type="submit" id="btn" name="forminput">Claim your free trial</button>
         </div>
         <p> By clicking the button, you are agreeing to our  <a href="">Terms and Services</a> </p>
       </form>

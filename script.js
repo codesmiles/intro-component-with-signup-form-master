@@ -31,11 +31,14 @@ submit.addEventListener("click", ()=>{
     return lastNameError.innerHTML = "Last name cannot be empty",
     lastNameErrorImage.style.display = "block";
   }
+
   function emailErrorNotify(){
     return emailError.innerHTML = "Looks like this is not an email",
     emailErrorImage.style.display = "block";
-    
+  
   }
+
+
   function passwordErrorNotify(){
     return passwordError.innerHTML = "Password cannot be empty",
     passwordErrorImage.style.display = "block";
@@ -179,6 +182,7 @@ else if(password.value.length === 0)
    
       return true
   }
+
   
 
 // ANOTHER EVENT LISTENER TO CHECK ON THE INPUT OF THE FORM
@@ -284,8 +288,4 @@ else if(password.value.length !== 0)
   })
 
 
-
-
 })
-
-
