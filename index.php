@@ -49,10 +49,7 @@
         $result = $conn->query($sql);
         $num = $result->num_rows;
 
-        // echo "seen" ;
-
         if($num == 0){
-          // echo 'seen';
           
           // IF THE EMAIL HASN'T BEEN USED
 
@@ -62,6 +59,7 @@
           //NOTIFY UIF THE DATA HAS BEEN CREATED OR NOT
           if($conn ->query($ql)){
             echo "Record created successfully";
+           // header('location:login.php');
 
 
           }
@@ -110,6 +108,7 @@
         
         <div>
           <button type="submit" id="btn" name="forminput">Claim your free trial</button>
+          <input type="reset" value="reset" name="del">
         </div>
         <p> By clicking the button, you are agreeing to our  <a href="">Terms and Services</a> </p>
       </form>
