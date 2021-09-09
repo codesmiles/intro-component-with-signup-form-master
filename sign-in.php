@@ -21,8 +21,14 @@
 <body>
     <?php
     session_start();
+    
     require('connect.php');
+ 
+    
+    // $_SERVER['HTTP_SELF'] = 'sign-in.php';
+    // echo $_SERVER['HTTP_SELF'];
 
+    
     if(isset($_POST['forminput'])){
         $email = $_POST['email'];
         $password = $_POST['password'];
@@ -69,6 +75,22 @@
           </div>
         
       </form>
+       
+       <?php 
+  if($_SERVER["REQUEST_METHOD"]== "POST"){
+    
+    // collect value of input field
+    $email = htmlspecialchars($_REQUEST['email']);
+    if(empty($email)){
+      echo "First name is empty";}
+      else{
+        echo $email;
+      }
+    }
+
+  
+  
+  ?>
        <script src="script.js"></script>
 </body>
 </html>

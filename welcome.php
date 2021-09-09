@@ -1,8 +1,25 @@
 <?php
+// require(connect.php);
 session_start();
+
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: index2.php");
+    header("location: sign-in.php");
     exit;
+
+$sql = "SELECT 'firstname'= $firstname, 'lastname' 'email', 'phone_no' FROM user_data";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+    $_SESSION['firstname'] = $firstname;
+    $_SESSION['lastname'] = 'lastname';
+}
+
+    // $sql = "SELECT * FROM `user_data` WHERE `firstname` LIKE 'michael'";
+    //     $result = $conn->query($sql);
+    // $_SESSION['phonenumber'] = $phonenumber;
+    // $_SESSION['password'] = $password;
+
+
 }
 
 ?>
@@ -16,9 +33,15 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <title>Document</title>
 </head>
 <body>
+<?php 
+
+  
+
+?>
+
     <h1>
         This is the Authetication Page
     </h1>
-    <p>Welcome, Tolu</p>
+    <p>Welcome, <!--Tolu--><span><?php echo $_SESSION['firstname']  ?></span></p>
 </body>
 </html>

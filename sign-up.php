@@ -35,6 +35,7 @@
     //CONNECTS TO THE DATABASE
       require('connect.php');
 
+
 //ISSET() IS USED TO AVOID ERROR MESSAGES IF THE INPUT TYPES ARE EMPTY
       if(isset($_POST['forminput'])){
         
@@ -42,6 +43,7 @@
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
         $email = $_POST['email'];
+        $phonenumber = $_POST['phonenumber'];
         $password =$_POST['password'];
         
         // CHECK IF THE THE EMAIL EXIST IN D DATABASE
@@ -49,12 +51,13 @@
         $result = $conn->query($sql);
         $num = $result->num_rows;
 
+        
         if($num == 0){
           
           // IF THE EMAIL HASN'T BEEN USED
 
           //Fill in the database the necessary input data
-          $ql = "INSERT INTO user_data (firstname, lastname, email, pwd) VALUES('$firstname', '$lastname', '$email', '$password')";         
+          $ql = "INSERT INTO user_data (firstname, lastname, email, phone_no, pwd) VALUES('$firstname', '$lastname', '$email', $phonenumber, '$password')";         
 
           //NOTIFY UIF THE DATA HAS BEEN CREATED OR NOT
           if($conn ->query($ql)){
@@ -78,6 +81,7 @@
   
 
   ?></p>
+ 
       <form method="POST" action="" class="formInput">
        
 
@@ -98,6 +102,12 @@
             <input type="email" name="email" placeholder="Email Address" id="email">
             <img src="icon-error.svg" alt="error" class="errorimg2">
             <p id="error2"></p>
+          </div>
+          
+          <div class="fn">  
+            <input type="tel" name="phonenumber"  pattern="[0-9]{11}" placeholder="Phone number" id="phone number">
+            <img src="icon-error.svg" alt="error" class="errorimg3">
+            <p id="error3"></p>
           </div>
           
           <div class="fn">  
