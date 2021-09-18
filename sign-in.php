@@ -19,7 +19,11 @@
     <title>Sign In</title>
 </head>
 <body>
-    <?php
+    
+
+        <h1>Sign In</h1>
+      <form method="POST" action="" class="formInput">
+<?php
     session_start();
     
     require('connect.php');
@@ -41,10 +45,18 @@
         if($num == 1 ){
             $_SESSION["loggedin"] = true;
             $_SESSION['email'] = $email;
+
+            // Fetch a data from a table row
+            $row = mysqli_fetch_assoc($result);
+            $id = $row['id'];
+            // Place into a superglobal
+            $_SESSION['id'] = $id;
+
+
             header("location: welcome.php");           
 
         }else{
-            ////// incorrect password or email
+            echo 'incorrect password or email';
 
         }
 
@@ -55,8 +67,6 @@
     
     ?>
 
-        <h1>Sign In</h1>
-      <form method="POST" action="" class="formInput">
           <div class="fn">
               <input type="email" name="email" placeholder="Email Address" id="email">
               <img src="icon-error.svg" alt="error" class="errorimg2">
@@ -71,26 +81,23 @@
 
           <div>
               <button type="submit" id="btn" name="forminput">Sign in</button>
-              >
+              <a href="sign-up.php" class="signup-link">Sign Up</a>
           </div>
         
       </form>
        
        <?php 
-  if($_SERVER["REQUEST_METHOD"]== "POST"){
+//   if($_SERVER["REQUEST_METHOD"]== "POST"){
     
-    // collect value of input field
-    $email = htmlspecialchars($_REQUEST['email']);
-    if(empty($email)){
-      echo "First name is empty";}
-      else{
-        echo $email;
-      }
-    }
-
-  
-  
-  ?>
+//     // collect value of input field
+//     $email = htmlspecialchars($_REQUEST['email']);
+//     if(empty($email)){
+//       echo "First name is empty";}
+//       else{
+//         echo $email;
+//       }
+//     }
+?>
        <script src="script.js"></script>
 </body>
 </html>

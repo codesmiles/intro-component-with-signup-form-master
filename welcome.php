@@ -1,26 +1,23 @@
 <?php
-// require(connect.php);
 session_start();
+require('connect.php');
 
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: sign-in.php");
-    exit;
-
-$sql = "SELECT 'firstname'= $firstname, 'lastname' 'email', 'phone_no' FROM user_data";
-$result = mysqli_query($conn, $sql);
-
-if (mysqli_num_rows($result) > 0) {
-    $_SESSION['firstname'] = $firstname;
-    $_SESSION['lastname'] = 'lastname';
 }
 
-    // $sql = "SELECT * FROM `user_data` WHERE `firstname` LIKE 'michael'";
-    //     $result = $conn->query($sql);
-    // $_SESSION['phonenumber'] = $phonenumber;
-    // $_SESSION['password'] = $password;
 
+else{
+$myemail =  $_SESSION['email'];
+$unique_id = $_SESSION['id'];
+
+$sql = "SELECT * FROM user_data WHERE id ='$unique_id'";
+$result = $conn->query($sql);
+$row = mysqli_fetch_assoc($result);
 
 }
+
+
 
 ?>
 <!DOCTYPE html>
@@ -42,6 +39,19 @@ if (mysqli_num_rows($result) > 0) {
     <h1>
         This is the Authetication Page
     </h1>
-    <p>Welcome, <!--Tolu--><span><?php echo $_SESSION['firstname']  ?></span></p>
+    <p> <?php echo'Welcome, '.$row['lastname'];?></p>
+
+<h1>Your data</h1>
+<p>
+    First name: <?php echo $row['firstname'] ?> <br/>
+    Last name: <?php echo $row['lastname'] ?> <br/>
+    Phone number: <?php echo $row['phone_no'] ?> <br/>
+    Email address: <?php echo $myemail ?>
+
+    <h1><?php echo 'MERCY'?></h1>
+</p>
+
+<a href="logout.php">Click here to log out</a>
+   
 </body>
 </html>

@@ -119,6 +119,7 @@
         <div>
           <button type="submit" id="btn" name="forminput">Claim your free trial</button>
           <input type="reset" value="reset" name="del">
+          <a href="sign-in.php">Sign in</a>
         </div>
         <p> By clicking the button, you are agreeing to our  <a href="">Terms and Services</a> </p>
       </form>

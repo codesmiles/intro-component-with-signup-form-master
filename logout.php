@@ -2,6 +2,6 @@
 
 session_destroy();
 
-header("Location: index2.php");
+header("Location: sign-in.php");
 
 ?>
